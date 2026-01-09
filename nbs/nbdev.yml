@@ -2,8 +2,8 @@ project:
   output-dir: _docs
 
 website:
-  title: "structify"
-  site-url: "https://gautam-e.github.io/structify"
-  description: "Make structured output easy for different LLM providers with the help of litellm"
+  title: "litestruct"
+  site-url: "https://gautam-e.github.io/litestruct"
+  description: "Structured output with different LLM providers"
   repo-branch: main
-  repo-url: "https://github.com/gautam-e/structify"
+  repo-url: "https://github.com/gautam-e/litestruct"
