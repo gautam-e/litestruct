@@ -35,12 +35,6 @@ Install latest from the GitHub
 $ pip install git+https://github.com/gautam-e/litestruct.git
 ```
 
-or from [conda](https://anaconda.org/gautam-e/litestruct)
-
-``` sh
-$ conda install -c gautam-e litestruct
-```
-
 or from [pypi](https://pypi.org/project/litestruct/)
 
 ``` sh
