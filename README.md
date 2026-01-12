@@ -58,12 +58,9 @@ from pydantic import BaseModel
 ```
 
 ``` python
-model="azure/gpt-4o-2024-08-06"
+model="azure/gpt-4o-2024-08-06" # e.g. openai/gpt-4o-2024-08-06 would use the standard OpenAI
 system_prompt = "Extract the event information."
-```
 
-``` python
-# This defines the output response format that we want
 class CalendarEvent(BaseModel):
     name: str
     date: str
@@ -71,19 +68,19 @@ class CalendarEvent(BaseModel):
 ```
 
 ``` python
-user_prompt = "Alice and Bob are going to Carmen's Birtday party on 22nd March 2025"
+user_prompt = "Alice and Bob are going to Carmen's birthday party on 22nd March 2025"
 ```
 
 ``` python
 r = structured_output(model=model,
                       system_prompt=system_prompt,
-                      user_prompt=user_prompt,
                       response_format=CalendarEvent, #Note this is the class name (without the `()`)
+                      user_prompt=user_prompt,
                  )
 
 r.model_dump()
 ```
 
     {'name': "Carmen's Birthday Party",
-     'date': '22nd March 2025',
+     'date': '2025-03-22',
      'participants': ['Alice', 'Bob']}

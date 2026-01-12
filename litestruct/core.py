@@ -10,20 +10,22 @@ import os
 from litellm import completion
 from pydantic import BaseModel
 
-# %% ../nbs/00_core.ipynb 4
-def structured_output(model:str, # Model name, see examples here or LiteLLM docs for complete list
-                      system_prompt:str, # Instructions for LLM to process the input string
-                      user_prompt:str, # Input string that will be processed
-                      response_format:BaseModel # User-defined Pydantic model to define output 
-                     ) -> BaseModel :
+# %% ../nbs/00_core.ipynb 5
+def structured_output(
+    model:str, # Model name, see examples here or LiteLLM docs for complete list
+    system_prompt:str, # Instructions for LLM to process the input string
+    response_format:BaseModel, # User-defined Pydantic model to define output 
+    user_prompt:str, # Input string that will be processed
+) -> BaseModel:
+    
+    """Get structured output from `model` by combining system and user prompts and making the right API call.
+    See, [here](https://docs.litellm.ai/docs/completion/json_mode#pass-in-json_schema) for full list of APIs available."""
+    
     response = completion(
         model=model,
         messages=[
             {"role": "system", "content": system_prompt},
-            {
-                "role": "user",
-                "content": user_prompt
-            }
+            {"role": "user", "content": user_prompt}
         ],
         response_format=response_format
     )
